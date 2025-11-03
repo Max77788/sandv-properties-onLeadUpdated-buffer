@@ -20,6 +20,8 @@ const OUTBOUND_WEBHOOK_URL = process.env.OUTBOUND_WEBHOOK_URL;
 const app = express();
 app.use(express.json());
 
+app.use(express.urlencoded({ extended: true }));
+
 // Healthcheck
 app.get("/", (_, res) => res.status(200).json({ ok: true }));
 
