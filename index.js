@@ -33,6 +33,9 @@ app.get("/", (_, res) => res.status(200).json({ ok: true }));
  */
 app.post("/onLeadUpdated", async (req, res) => {
   try {
+
+    console.log(req.body);
+
     // Defensive parse for Bitrix key with brackets
     const leadIdRaw =
       req.body?.body?.["data[FIELDS][ID]"] ??
