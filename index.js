@@ -101,6 +101,9 @@ app.post("/onLeadUpdated", async (req, res) => {
       return res.status(200).json({ ok: true, forwarded: true, leadId });
     }
 
+    console.log(`statusPass: ${statusPass}, movedPass: ${movedPass}`);
+    console.log(`leadId: ${leadId}, statusId: ${statusId}, movedTime: ${movedTimeRaw}`);
+
     return res.status(200).json({
       ok: true,
       forwarded: false,
