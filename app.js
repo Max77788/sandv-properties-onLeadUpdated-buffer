@@ -12,7 +12,7 @@ const TARGET_STATUS_IDS = process.env.TARGET_STATUS_IDS.split(",");
 // Webhook to notify when both conditions pass:
 const OUTBOUND_WEBHOOK_URL = process.env.OUTBOUND_WEBHOOK_URL;
 
-console.log(BITRIX_LEAD_GET_URL, TARGET_STATUS_IDS, OUTBOUND_WEBHOOK_URL);
+// console.log(BITRIX_LEAD_GET_URL, TARGET_STATUS_IDS, OUTBOUND_WEBHOOK_URL);
 
 // ==========================================
 
