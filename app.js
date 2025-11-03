@@ -2,6 +2,7 @@ import express from "express";
 import serverless from "serverless-http";
 import { fetch } from "undici";
 import dotenv from "dotenv";
+import util from 'util';
 
 dotenv.config();
 
@@ -46,6 +47,7 @@ app.post("/onLeadUpdated", async (req, res) => {
       req.body?.data?.FIELDS?.ID;
 
     if (!leadIdRaw) {
+      console.log("Lead ID not found in payload: ", leadIdRaw);
       return res.status(400).json({ ok: false, error: "Lead ID not found in payload." });
     }
 
