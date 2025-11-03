@@ -149,9 +149,5 @@ function isWithinLastMinute(movedTimeRaw) {
   return diffMs >= 0 && diffMs <= 60_000;
 }
 
-if (process.env.NODE_ENV !== "vercel") {
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => console.log(`Local server running on http://localhost:${PORT}`));
-  }
-
-export default serverless(app);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Local server running on http://localhost:${PORT}`));
