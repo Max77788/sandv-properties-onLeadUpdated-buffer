@@ -40,7 +40,10 @@ app.post("/onLeadUpdated", async (req, res) => {
     const leadIdRaw =
       req.body?.body?.["data[FIELDS][ID]"] ??
       req.body?.body?.data?.FIELDS?.ID ?? // just in case your source changes formatting
-      req.body?.body?.ID;
+      req.body?.body?.ID ??
+      req.body?.ID ??
+      req.body?.["data[FIELDS][ID]"] ??
+      req.body?.data?.FIELDS?.ID;
 
     if (!leadIdRaw) {
       return res.status(400).json({ ok: false, error: "Lead ID not found in payload." });
