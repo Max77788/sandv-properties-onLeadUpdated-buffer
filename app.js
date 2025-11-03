@@ -37,6 +37,8 @@ app.post("/onLeadUpdated", async (req, res) => {
 
     // console.log(req);
 
+    console.log(util.inspect(req.body, { depth: null, colors: true }));
+
     // Defensive parse for Bitrix key with brackets
     const leadIdRaw =
       req.body?.body?.["data[FIELDS][ID]"] ??
