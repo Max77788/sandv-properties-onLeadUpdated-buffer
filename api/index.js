@@ -1,15 +1,19 @@
 import express from "express";
 import serverless from "serverless-http";
 import { fetch } from "undici";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 // ===== Static config you will fill in =====
-const BITRIX_LEAD_GET_URL = "https://svproperties.bitrix24.com/rest/10/trrzb2qob3ymgtm4/crm.lead.get.json";
+const BITRIX_LEAD_GET_URL = process.env.BITRIX_LEAD_GET_URL;
 // Accept any of these status IDs as a pass condition:
-const TARGET_STATUS_IDS = [
-  "UC_O55MWV" // add more if needed
-];
+const TARGET_STATUS_IDS = process.env.TARGET_STATUS_IDS.split(",");
 // Webhook to notify when both conditions pass:
-const OUTBOUND_WEBHOOK_URL = "https://parisasbc.app.n8n.cloud/webhook/on-lead-updated"; // <-- replace
+const OUTBOUND_WEBHOOK_URL = process.env.OUTBOUND_WEBHOOK_URL;
+
+console.log(BITRIX_LEAD_GET_URL, TARGET_STATUS_IDS, OUTBOUND_WEBHOOK_URL);
+
 // ==========================================
 
 const app = express();
